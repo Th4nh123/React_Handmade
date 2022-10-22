@@ -7,7 +7,7 @@ export default function Bar(props) {
 
     return (
         <div className="bar">
-            <span><a onClick={alert()} style={{textDecoration: props.name ,color:"white"}} >GIỚI THIỆU</a></span>
+            <span><a onClick={() => alert()} style={{textDecoration: props.name ,color:"white"}} >GIỚI THIỆU</a></span>
             <span>TUYỂN SINH</span>
             <span>ĐÀO TẠO</span>
             <span>NGHIÊN CỨU KHOA HỌC</span>

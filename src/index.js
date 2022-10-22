@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,12 +7,18 @@ import Bar from './components/content';
 import logo from './logo512.png'
 
 function Headerleft({ name }) {
-  const university = "TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI";
+  const university = ["TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI", { name }];
+  const array = university.map(index => {
+    return (
+      index
+    );
+  });
+  console.log(array);
   return (
     <div className="left">
       <img src="https://huce.edu.vn/theme1/images/logo/logo_trans.png" alt="" height="70" width="70" />
-      <div className="element1">{university}</div>
-      <div className="element2">{name}</div>
+      <div className="element1">{array[0]}</div>
+      <div className="element2">{array[1].name}</div>
     </div>
   )
 }
@@ -37,24 +43,32 @@ function SecondMain(props) {
 }
 
 function HeaderRight() {
-  const [Data, setData] = React.useState("fa fa-car");
+  const [Data, setData] = useState("fa fa-car");
   const Text = ["Tìm kiếm", "English", "Các ứng dụng", "Đăng nhập"];
+  function search() {
+    setData("fa fa-search")
+  }
+  function money() {
+    setData("fa fa-money")
+  }
+  function rocket() {
+    setData("fa fa-rocket")
+  }
+  function cc_visa() {
+    setData("fa fa-cc-visa")
+  }
   const headerright = Text.map(index => {
-    return (<span>{index}</span>);
+    return (
+      index
+    );
   })
-  console.log(Data);
-  // function set() {
-    // setData("fa fa-apple")
-  // }
-  console.log(Data);
-  // setData("fas fa-clock")
   return (
     <div class="right">
       <i class={Data}></i>
-      {headerright}
-      <span>
-        {/* <a onClick={set()} style={{textDecoration: "none",color:"white"}} >GIỚI THIỆU</a> */}
-      </span>
+      <a onClick={() => search()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[0]}</span></a>
+      <a onClick={() => money()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[1]}</span></a>
+      <a onClick={() => rocket()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[2]}</span></a>
+      <a onClick={() => cc_visa()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[3]}</span></a>
     </div>
   )
 }
