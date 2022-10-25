@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Bar from './components/content';
 import logo from './logo512.png'
+import Footer from "./components/index";
 
 function Headerleft({ name }) {
   const university = ["TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI", { name }];
@@ -13,12 +14,15 @@ function Headerleft({ name }) {
       index
     );
   });
-  console.log(array);
+  const element = {
+    "name1": 'element1',
+    "name2": 'element2'
+  };
   return (
     <div className="left">
-      <img src="https://huce.edu.vn/theme1/images/logo/logo_trans.png" alt="" height="70" width="70" />
-      <div className="element1">{array[0]}</div>
-      <div className="element2">{array[1].name}</div>
+      <img src="https://huce.edu.vn/theme1/images/logo/logo_trans.png" alt="" width="100" />
+      <div className={element.name1}>{array[0]}</div>
+      <div className={element.name2}>{array[1].name}</div>
     </div>
   )
 }
@@ -64,11 +68,10 @@ function HeaderRight() {
   })
   return (
     <div class="right">
-      <i class={Data}></i>
-      <a onClick={() => search()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[0]}</span></a>
-      <a onClick={() => money()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[1]}</span></a>
-      <a onClick={() => rocket()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[2]}</span></a>
-      <a onClick={() => cc_visa()} style={{ textDecoration: "none", color: "white" }} ><span>{headerright[3]}</span></a>
+      <a onClick={() => search()} style={{ textDecoration: "none", color: "white" }} ><span><i class={Data}></i>{headerright[0]}</span></a>
+      <a onClick={() => money()} style={{ textDecoration: "none", color: "white" }} ><span><i class={Data}></i>{headerright[1]}</span></a>
+      <a onClick={() => rocket()} style={{ textDecoration: "none", color: "white" }} ><span><i class={Data}></i>{headerright[2]}</span></a>
+      <a onClick={() => cc_visa()} style={{ textDecoration: "none", color: "white" }} ><span><i class={Data}></i>{headerright[3]}</span></a>
     </div>
   )
 }
@@ -76,17 +79,20 @@ function HeaderRight() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <div class="header">
+    <div class="header" id='navbar'>
       <Headerleft name="Hanoi University Of Civil Engineering" />
       <HeaderRight />
     </div>
-    <Bar />
+    <div style={{height:130}}></div>
+    <Bar class="bar"/>
+    <div style={{height:70}}></div>
     <Main />
     <div className='main2'>
       <SecondMain src="https://huce.edu.vn/images57/portal-1/Chuy%C3%AAn%20m%E1%BB%A5c%20n%E1%BB%95i%20b%E1%BA%ADt/92a36514-4e79-44b1-befc-68e0d7956f82.jpg" />
       <SecondMain src="https://huce.edu.vn/images57/portal-1/Chuy%C3%AAn%20m%E1%BB%A5c%20n%E1%BB%95i%20b%E1%BA%ADt/846d2718-aa07-4840-8d6b-9867c58a833f.jpg" />
       <SecondMain src="https://huce.edu.vn/images57/portal-1/Chuy%C3%AAn%20m%E1%BB%A5c%20n%E1%BB%95i%20b%E1%BA%ADt/ded70e8b-906e-45e2-acd8-bea7cd354c92.jpg" />
     </div>
+    <Footer/>
   </>
 );
 
